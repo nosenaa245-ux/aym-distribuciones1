@@ -3,11 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>AYM DISTRIBUCIONES - Catálogo Mayorista | aym-distribuciones.verse.app</title>
-    <meta name="description" content="Catálogo mayorista interactivo y toma de pedidos de AYM DISTRIBUCIONES (aym-distribuciones.verse.app) con pedidos directos al WhatsApp 3113986110." />
+    <title>Aym distribuciones github - Catálogo Mayorista y Pedidos Online</title>
+    <meta name="description" content="Catálogo interactivo de promociones y pedidos para AYM Distribuciones con pedidos directos al WhatsApp 3113986110." />
+    <meta property="og:title" content="Aym distribuciones github - Catálogo Mayorista y Pedidos Online" />
+    <meta property="og:description" content="Catálogo interactivo de promociones y pedidos para AYM Distribuciones con pedidos directos al WhatsApp 3113986110." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="text/javascript">
+      // Soporte para rutas SPA en GitHub Pages (ej. usuario.github.io/repositorio)
+      (function(l) {
+        if (l.search) {
+          var q = new URLSearchParams(l.search);
+          if (q.has('p')) {
+            var path = decodeURIComponent(q.get('p') || '');
+            q.delete('p');
+            var rest = q.toString();
+            var newUrl = l.pathname.replace(/\/$/, '') + (path.startsWith('/') ? path : '/' + path) + (rest ? '?' + rest : '') + l.hash;
+            window.history.replaceState(null, null, newUrl);
+          }
+        }
+      })(window.location);
+    </script>
   </head>
   <body class="bg-[#F8FAFC] antialiased">
     <div id="root"></div>

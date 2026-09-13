@@ -3821,7 +3821,7 @@ export const AdminPanelModal: React.FC<AdminPanelModalProps> = ({
                       type="text"
                       value={brandForm.subtitle}
                       onChange={(e) => setBrandForm({ ...brandForm, subtitle: e.target.value })}
-                      placeholder="aym-distribuciones.verse.app"
+                      placeholder="ej. aym-distribuciones.github.io"
                       className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-blue-600 focus:outline-hidden"
                     />
                   </div>

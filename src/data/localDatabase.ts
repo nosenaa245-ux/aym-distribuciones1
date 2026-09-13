@@ -72,7 +72,7 @@ export const CATEGORIES = [
 
 export const DEFAULT_BRANDING: StoreBranding = {
   name: 'AYM DISTRIBUCIONES',
-  subtitle: 'aym-distribuciones.verse.app',
+  subtitle: '',
   logoUrl: '',
   whatsappNumber: '3113986110',
 };

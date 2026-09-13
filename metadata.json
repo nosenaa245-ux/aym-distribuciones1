@@ -1,6 +1,6 @@
 {
   "name": "Aym distribuciones github",
-  "description": "Catálogo interactivo de promociones y pedidos para AYM Distribuciones (aym-districuciones.com) con pedidos directos al WhatsApp 3113986110.",
+  "description": "Catálogo interactivo de promociones y pedidos para AYM Distribuciones con pedidos directos al WhatsApp 3113986110.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

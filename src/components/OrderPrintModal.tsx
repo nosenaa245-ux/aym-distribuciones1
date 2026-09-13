@@ -36,9 +36,13 @@ export const OrderPrintModal: React.FC<OrderPrintModalProps> = ({
   order,
   ordersList,
   brandingName = 'AYM DISTRIBUCIONES',
-  brandingSubtitle = 'aym-distribuciones.verse.app',
+  brandingSubtitle,
   storePhone = '3113986110',
 }) => {
+  const displaySubtitle =
+    brandingSubtitle && brandingSubtitle !== 'aym-distribuciones.verse.app'
+      ? brandingSubtitle
+      : (typeof window !== 'undefined' && window.location.host ? window.location.host : 'Catálogo Mayorista');
   const [printFormat, setPrintFormat] = useState<'letter' | 'pos80' | 'pos58' | 'batch_list'>('letter');
   const [copied, setCopied] = useState(false);
 
@@ -215,7 +219,7 @@ export const OrderPrintModal: React.FC<OrderPrintModalProps> = ({
                   <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950">
                     {brandingName}
                   </h1>
-                  <p className="text-xs font-semibold text-slate-600">{brandingSubtitle}</p>
+                  <p className="text-xs font-semibold text-slate-600">{displaySubtitle}</p>
                   <p className="text-xs text-slate-500 mt-0.5">
                     WhatsApp Despachos: <strong>+{storePhone}</strong>
                   </p>
@@ -355,7 +359,7 @@ export const OrderPrintModal: React.FC<OrderPrintModalProps> = ({
               {/* Thermal Header */}
               <div className="text-center pb-2 border-b border-dashed border-slate-400 space-y-0.5">
                 <div className="font-black text-sm uppercase">{brandingName}</div>
-                <div className="text-[10px]">{brandingSubtitle}</div>
+                <div className="text-[10px]">{displaySubtitle}</div>
                 <div className="text-[10px]">Tel / WhatsApp: {storePhone}</div>
                 <div className="text-[10px] font-bold mt-1">*** COMPROBANTE DE DESPACHO ***</div>
               </div>
@@ -416,7 +420,7 @@ export const OrderPrintModal: React.FC<OrderPrintModalProps> = ({
               {/* Thermal Footer */}
               <div className="text-center pt-3 border-t border-dashed border-slate-400 text-[10px] space-y-1">
                 <div>¡Gracias por tu compra mayorista!</div>
-                <div className="font-bold">{brandingSubtitle}</div>
+                <div className="font-bold">{displaySubtitle}</div>
                 <div className="h-6"></div>
                 <div className="border-t border-slate-300 pt-1">Firma del Cliente Recibido</div>
               </div>

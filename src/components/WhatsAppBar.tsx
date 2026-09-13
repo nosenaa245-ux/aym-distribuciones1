@@ -126,8 +126,11 @@ export const WhatsAppBar: React.FC<WhatsAppBarProps> = ({
                     if (navigator.share) {
                       navigator.share({
                         title: 'AYM Distribuciones - Catálogo Mayorista',
-                        url: 'https://aym-distribuciones.verse.app',
+                        url: typeof window !== 'undefined' ? window.location.href : '',
                       }).catch(() => {});
+                    } else if (typeof window !== 'undefined' && navigator.clipboard) {
+                      navigator.clipboard.writeText(window.location.href);
+                      alert('Enlace del catálogo copiado al portapapeles');
                     }
                   }}
                   className="w-full text-left px-3 py-2 hover:bg-gray-50 flex items-center gap-2 text-gray-700 cursor-pointer"
@@ -150,10 +153,10 @@ export const WhatsAppBar: React.FC<WhatsAppBarProps> = ({
               <h4 className="font-bold text-slate-900 text-base">Conexión Verificada</h4>
             </div>
             <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Estás conectado a la plataforma de pedidos oficial de <strong>AYM Distribuciones</strong> (<strong>aym-distribuciones.verse.app</strong>). Los precios y promociones están actualizados para tiendas y autoservicios.
+              Estás conectado a la plataforma de pedidos oficial de <strong>AYM Distribuciones</strong> ({typeof window !== 'undefined' && window.location.host ? window.location.host : 'Catálogo Oficial'}). Los precios y promociones están actualizados para tiendas y autoservicios.
             </p>
             <div className="bg-gray-50 p-2.5 rounded-lg text-[11px] text-gray-600 space-y-1 mb-4">
-              <div>🌐 <strong>Sitio Web:</strong> aym-distribuciones.verse.app</div>
+              <div>🌐 <strong>Sitio Web:</strong> {typeof window !== 'undefined' && window.location.host ? window.location.host : 'GitHub Pages'}</div>
               <div>📍 <strong>Cobertura:</strong> Colombia (Nacional)</div>
               <div>🚚 <strong>Despachos:</strong> 24 a 48 horas hábiles</div>
               <div>💬 <strong>Pedidos WhatsApp:</strong> {whatsappNumber}</div>

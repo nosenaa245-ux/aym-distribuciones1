@@ -2,12 +2,24 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>AYM DISTRIBUCIONES</title>
-    <script>
-      sessionStorage.redirect = location.href;
+    <script type="text/javascript">
+      (function() {
+        var l = window.location;
+        var isGithubIo = l.hostname.indexOf('github.io') !== -1;
+        var pathSegments = l.pathname.split('/').filter(Boolean);
+        var repoPrefix = (isGithubIo && pathSegments.length > 0) ? '/' + pathSegments[0] : '';
+        var routePath = (isGithubIo && pathSegments.length > 0) ? '/' + pathSegments.slice(1).join('/') : l.pathname;
+
+        var target = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          repoPrefix + '/?' +
+          (routePath && routePath !== '/' ? 'p=' + encodeURIComponent(routePath) : '') +
+          (l.search ? (routePath && routePath !== '/' ? '&' : '') + l.search.slice(1) : '') +
+          l.hash;
+
+        l.replace(target);
+      })();
     </script>
-    <meta http-equiv="refresh" content="0;URL='./'">
   </head>
   <body>
   </body>

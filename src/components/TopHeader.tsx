@@ -30,7 +30,11 @@ export const TopHeader: React.FC<TopHeaderProps> = ({
   const [imageError, setImageError] = useState(false);
 
   const storeName = branding?.name || 'AYM DISTRIBUCIONES';
-  const storeSubtitle = branding?.subtitle || 'aym-distribuciones.verse.app';
+  const detectedHost = typeof window !== 'undefined' && window.location.host ? window.location.host : '';
+  const storeSubtitle =
+    branding?.subtitle && branding.subtitle !== 'aym-distribuciones.verse.app'
+      ? branding.subtitle
+      : (detectedHost || 'Catálogo Mayorista');
   const hasLogo = Boolean(branding?.logoUrl && !imageError);
 
   return (
